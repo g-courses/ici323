@@ -14,7 +14,7 @@ SRC=ejemplo.c
 OBJ=$(SRC:.c=.o)
 BIN=$(SRC:.c= )
 
-default: $(BIN) run
+default: $(BIN)
 
 $(BIN): $(OBJ)
 	$(CC) $(OBJ) -o $(BIN)
