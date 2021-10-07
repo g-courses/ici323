@@ -2,10 +2,10 @@ CC=gcc
 CXX=g++
 RM=rm -f
 
-TARGET=../example
+TARGET=./example
 
 
-INCLUDES=-I../include 
+INCLUDES=-I./include 
 LDFLAGS=
 LDLIBS=-lpthread
 
