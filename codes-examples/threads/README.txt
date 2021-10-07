@@ -34,3 +34,12 @@ example08:
 example09:
 	Tasks: Creación
 	Ejemplo de división de trabajo
+
+example10:
+	I/O bloqueante y no bloqueante paralelo/concurrente.
+
+example11:
+	Otro ejemplo de "race condition".
+
+example12:
+	Ejemplo de sincronización de una estructura que es la sección crítica del algoritmo.
