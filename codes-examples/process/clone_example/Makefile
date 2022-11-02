@@ -1,33 +1,42 @@
-#
-# Seccion 1
-#
-# Esta seccion se puede modificar segun
-# los requerimientos de su proyecto
+TARGET=./example
 
 CC=gcc
-SRC=main.c
-CFLAGS=-Wall -std=c17
-#LIBS=-ldl
+RM=rm -f
 
 
-BIN=main
-#
-# Seccion 2 (NO MODIFICAR!!!)
-#
-OBJ=$(SRC:.c=.o)
 
-all:  $(BIN)
+INCLUDES=-I.
+LDFLAGS=-L/usr/local/lib 
+LDLIBS=-lpthread
 
-$(BIN): $(OBJ)
-	$(CC) $(LIBS) $(OBJ) -o $(@)
-	@rm -f $(OBJ)
-	@rm -f *~
-	
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+CCFLAGS=-std=c17 -Wall
+
+DIR_OBJ=objs
+
+SRCS=$(wildcard *.c)
+
+OBJS=$(patsubst %.c,$(DIR_OBJ)/%.o,$(SRCS))
+
+
+all: $(TARGET)
+	@echo Made [ $? ] OK :\)
+
+$(TARGET): $(OBJS)
+	@echo Linking [$@]
+	@$(CC) -o $@ $^ $(CCFLAGS) $(LDLIBS) $(LDFLAGS) 
+
+$(DIR_OBJ)/%.o: %.c
+	@echo Compiling [$@]
+	@mkdir -p $(DIR_OBJ)
+	@$(CC) -c -o $@ $< $(CCFLAGS) $(INCLUDES)
 
 clean:
-	@rm -f $(OBJ)
-	@rm -f *~
-	@rm -f $(BIN)
+	@$(RM) $(OBJS)
+	@$(RM) *~ core
+
+distclean: clean
+	@$(RM) $(TARGET)
+	@$(RM) -r $(DIR_OBJ)
+
+.PHONY: all clean distclean
 	
