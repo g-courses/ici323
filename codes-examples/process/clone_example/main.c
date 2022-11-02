@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
 	
 	// Realiza el join
 	for(int childID = 0; childID < programArgs.num1; childID++){
-    	wait(NULL);
+    		wait(NULL);
 	}
 	
 	printf("\nPARENT: memShared=\"%s\".\n", memShared);
