@@ -3,17 +3,17 @@
 extern char *optarg;
 extern int optind, opterr, optopt;
 /*
- *		==================================
- *		FUNCIONES RELACIONADAS CON EL PASO
- *		DE ARGUMENTOS AL PROGRAMA
+ *    ==================================
+ *    FUNCIONES RELACIONADAS CON EL PASO
+ *    DE ARGUMENTOS AL PROGRAMA
  *    ==================================
  */
 
 
 
 /*
- *		Funcion que imprime en stdout el uso
- *		del programa.
+ *    Funcion que imprime en stdout el uso
+ *    del programa.
  */
 void print_usage(char* name){
 	printf("Uso: %s -p num1 -f num2 -z num3\n", name);
@@ -25,7 +25,7 @@ void print_usage(char* name){
 /* FIN print_usage()*/
 
 /*
- *		Funcion que comprueba el ingreso de parametros
+ *    Funcion que comprueba el ingreso de parametros
  */
 args_t check_args(int argc , char **argv, const char *optString){
 	args_t args;
